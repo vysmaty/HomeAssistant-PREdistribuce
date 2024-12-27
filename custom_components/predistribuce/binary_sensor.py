@@ -83,6 +83,7 @@ class PreDistribuce(BinarySensorEntity):
         self._name = name
         self.timeToNT = 0
         self.html = "<div><i>Není spojení</i></div>"
+        self.html_zitra = "<div><i>Není spojení</i></div>"
         self.tree = ""
         self.update()
 
@@ -140,6 +141,7 @@ class PreDistribuce(BinarySensorEntity):
         attributes = {}
         if self.minutes == 0:
             attributes['html_values'] = STYLES + self.html
+            attributes['html_values_zitra'] = STYLES + self.html_zitra
         return attributes
     @property
     def should_poll(self):
@@ -164,6 +166,8 @@ class PreDistribuce(BinarySensorEntity):
             self.tree = html.fromstring(page.content)
             self.html = etree.tostring(self.tree.xpath('//div[@id="component-hdo-dnes"]')[0]).decode("utf-8").replace('\n', '').replace('\t', '').replace('"/>', '"></span>')
             self.html = self.html.replace('<div class="overflow-bar"></span>', '<div class="overflow-bar"></div>')
+            self.html_zitra = etree.tostring(self.tree.xpath('//div[@id="component-hdo-zitra"]')[0]).decode("utf-8").replace('\n', '').replace('\t', '').replace('"/>', '"></span>')
+            self.html_zitra = self.html_zitra.replace('<div class="overflow-bar"></span>', '<div class="overflow-bar"></div>')
             #_LOGGER.warn("UPDATING POST {}".format(self.html))
             self.last_update_success = True
         else:

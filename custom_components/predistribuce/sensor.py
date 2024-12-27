@@ -51,6 +51,7 @@ class PreDistribuce(Entity):
         self._name = name
         self.timeToNT = 0
         self.html = "<div><i>Není spojení</i></div>"
+        self.html_zitra = "<div><i>Není spojení</i></div>"
         self.tree = ""
         self.update()
 
@@ -125,6 +126,7 @@ class PreDistribuce(Entity):
         if page.status_code == 200:
             self.tree = html.fromstring(page.content)
             self.html = etree.tostring(self.tree.xpath('//div[@id="component-hdo-dnes"]')[0]).decode("utf-8").replace('\n', '').replace('\t', '').replace('"/>', '"></span>')
+            self.html_zitra = etree.tostring(self.tree.xpath('//div[@id="component-hdo-zitra"]')[0]).decode("utf-8").replace('\n', '').replace('\t', '').replace('"/>', '"></span>')
             #_LOGGER.warn("UPDATING POST {}".format(self.html))
             self.last_update_success = True
         else:
