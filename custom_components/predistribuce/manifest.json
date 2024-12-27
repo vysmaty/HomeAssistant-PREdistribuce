@@ -5,6 +5,6 @@
     "issue_tracker": "https://github.com/vysmaty/HomeAssistant-PREdistribuce/issues",
     "dependencies": [],
     "codeowners": ["@vysmaty"],
-    "version": "1.0.2",
+    "version": "1.0.3",
     "requirements": ["lxml==5.3.0"]
 }
