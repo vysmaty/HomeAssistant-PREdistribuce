@@ -78,7 +78,7 @@ class PreDistribuce(BinarySensorEntity):
         self.conf_cmd = conf_cmd
         self.minutes = minutes
         self.entity_id = f"binary_sensor.hdo_{conf_cmd}"
-        self._attr_unique_id = f"{DOMAIN}-hdo-{conf_cmd}"
+        self._attr_unique_id = f"{DOMAIN}-hdo-{conf_cmd}-{minutes}"
         self._name = f"HDO {name}"
         self._name = name
         self.timeToNT = 0
