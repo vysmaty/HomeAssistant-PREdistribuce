@@ -40,7 +40,6 @@ STYLES = """
     .status .wrapper.dark-blue { background: #242F65; }
     .status .wrapper.light-blue { background: #9CACC5; }
     .hdo-sections.wrapper { padding: 6px 7px; margin: 0 5px 0 10px; }
-    #component-hdo-dnes { min-width: 300px; width: auto; max-width: 650px; margin-left: -10px; margin-right: -10px; }
     .clear { clear: both; }
   </style> 
 """
